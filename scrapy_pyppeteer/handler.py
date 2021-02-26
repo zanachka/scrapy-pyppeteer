@@ -1,6 +1,5 @@
 import asyncio
 import logging
-from functools import partial
 from pathlib import Path
 from time import time
 from typing import Optional, Type, TypeVar
@@ -125,8 +124,15 @@ class ScrapyPyppeteerDownloadHandler(HTTPDownloadHandler):
         if self.navigation_timeout is not None:
             page.setDefaultNavigationTimeout(self.navigation_timeout)
         await page.setRequestInterception(True)
-        page.on("request", partial(_request_handler, scrapy_request=request, stats=self.stats))
-        page.on("response", partial(_response_handler, stats=self.stats))
+        page.on(
+            "request",
+            lambda req: asyncio.create_task(
+                _request_handler(req, scrapy_request=request, stats=self.stats)
+            ),
+        )
+        page.on(
+            "response", lambda resp: asyncio.create_task(_response_handler(resp, stats=self.stats))
+        )
         return page
 
     async def _download_request_with_page(
