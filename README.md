@@ -1,3 +1,10 @@
+# Unmaintained
+
+If you need browser integration for Scrapy, please consider using
+[`scrapy-playwright`](https://github.com/scrapy-plugins/scrapy-playwright)
+
+---
+
 # Pyppeteer integration for Scrapy
 [![version](https://img.shields.io/pypi/v/scrapy-pyppeteer.svg)](https://pypi.python.org/pypi/scrapy-pyppeteer)
 [![pyversions](https://img.shields.io/pypi/pyversions/scrapy-pyppeteer.svg)](https://pypi.python.org/pypi/scrapy-pyppeteer)
