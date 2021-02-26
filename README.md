@@ -6,7 +6,7 @@
 
 
 This project provides a Scrapy Download Handler which performs requests using
-[Pyppeteer](https://github.com/miyakogi/pyppeteer). It can be used to handle
+[Pyppeteer](https://github.com/pyppeteer/pyppeteer). It can be used to handle
 pages that require JavaScript. This package does not interfere with regular
 Scrapy workflows such as request scheduling or item processing.
 
